@@ -1,0 +1,30 @@
+<section class="container">
+<div class="row">
+  <h3 class="center-align">Inicio Sesion</h3>
+    <article class="col s6 offset-s3">      
+      <div class="input-field">
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <div class="input-field">
+                <%= f.label :Correo %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+              </div>
+
+              <div class="input-field">
+                <%= f.label :Contraseña %><br/>
+                <%= f.password_field :password, autocomplete: "off" %>
+              </div>          
+
+              <p class="center-align">
+                <%= f.submit  "Ingresar", class: 'waves-effect waves-light btn' %>
+              </p>
+            <% end %>
+
+            <%= render "devise/shared/links" %>
+       </div>       
+    </article>
+  </div>
+</section>
+
+
+
+

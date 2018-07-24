@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Proyecto</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+      <nav class="light-blue lighten-1 black-text" role="navigation">
+          <div class="nav-wrapper container">
+            <a id="logo-container" href="index.html" class="brand-logo ">U. Amigas</a>
+            <div class="nav-wrapper black-text">
+              <ul class="right">
+              <% if user_signed_in? %>
+                  <li class="col-md">
+                    <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
+                  </li>
+                <%end%>
+                <li>                                  
+                <%= link_to "Inicio", root_path %>
+                </li>      
+                <li>                  
+                <%= link_to  'Contacto', "../home/contacto" %>
+                </li>
+                <li>
+                <%= link_to  'Iniciar sesión', '../users/sign_in' %>
+                </li>
+                <li>
+                  <%= link_to  'Resgistrarse', '../users/sign_up' %>               
+                </li>
+              </ul>
+            </div>            
+        </nav>
+
+        <p class="notice"><%= notice %></p>
+         <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </body>
+</html>
